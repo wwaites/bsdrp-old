@@ -325,6 +325,9 @@ add_port "net-mgmt/fprobe"
 add_port "net/isc-dhcp42-server" "-DWITH_DHCP_IPV6 -DWITHOUT_DHCP_PARANOIA"
 add_port "net/isc-dhcp42-relay"
 
+# Add DNS proxy
+add_port "dns/djbdns" "-DWITH_IPV6 -DWITHOUT_MAN"
+
 # Add sstmp, a simple MTA to get mail off the system
 add_port "mail/ssmtp"
 
@@ -343,6 +346,13 @@ add_port "net/mpd5"
 # Add some benchmark tools: iperf ant netpipe, These tools will help us to tune BSDRP for better perf
 add_port "benchmarks/netpipe" 
 add_port "benchmarks/iperf"
+add_port "net/pchar"
+
+# for people who are frightened of vi
+add_port "editors/nano" 
+
+# for peter
+add_port "security/openvpn"
 
 # VM tools
 # VM tools brings too lot's of deps… Need to delete them all after installing (if there are used for build only)
@@ -576,7 +586,6 @@ usr/share/tmac/tmac.vgrind
 	# Generate package inventory
 	chroot ${NANO_WORLDDIR} /bin/sh -exc \
 	'pkg_info' > ${NANO_OBJ}/packages.info
-
 }
 
 # Enable only serial system only

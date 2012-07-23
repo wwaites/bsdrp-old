@@ -9,28 +9,28 @@ alias h         history 25
 alias j         jobs -l
 alias la        ls -aF
 alias lf        ls -FA
-alias ll		ls -lAF
+alias ll	ls -lAF
 
 # Some BSDRP aliases:
 alias ls		ls -G
-alias cli		vtysh
-alias include	grep
-alias reload	'system reboot'
+alias cli		'birdc -s /var/run/bird.ctl'
+alias include		grep
+alias reload		'system reboot'
 alias halt		'system halt'
-alias reboot	'system reboot'
+alias reboot		'system reboot'
 alias wr		'config save'
 alias tmux		tmux -u
 
 #Ugly patch because birdc is compiled for using /usr/local/var/run
 alias birdc		'birdc -s /var/run/bird.ctl'
-alias birdc6	'birdc6 -s /var/run/bird6.ctl'
+alias birdc6		'birdc6 -s /var/run/bird6.ctl'
 
 # A righteous umask
 umask 22
 
 set path = (/sbin /bin /usr/sbin /usr/bin /usr/local/sbin /usr/local/bin $HOME/bin)
 
-setenv  EDITOR  vi
+setenv  EDITOR  nano
 setenv  PAGER   less
 setenv  BLOCKSIZE       K
 

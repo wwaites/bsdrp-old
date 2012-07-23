@@ -1,10 +1,4 @@
-BSD Router project (BSDRP) (c) 2009-2012, The BSDRP Development Team
-All rights reserved.
-BSDRP is under the Simplified BSD license.
+Copyright (c) 2009-2012 BSD Router project (BSDRP)
+Copyright (c) 2012 University of Stirling (HUBS)
 
-Documentation: http://bsdrp.net
-
-Discover BSDRP tools with "help" command
-
-Configure Keyboard layout with this command:
-kbdcontrol -l keymap_file (<TAB> for list available maps)
+Type 'help' to get started
