@@ -318,6 +318,9 @@ add_port "net/mcast-tools"
 # Add IPv4 DVMRP (multicast) routing daemon
 add_port "net/mrouted"
 
+# Add IPv4 PIM (dense) (multicast) routing daemon
+add_port "net/pimdd"
+
 # Add fprobe: Netflow probe
 add_port "net-mgmt/fprobe"
 

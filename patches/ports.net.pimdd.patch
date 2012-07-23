@@ -1,0 +1,38 @@
+diff -ruN net/pimdd.orig/Makefile net/pimdd/Makefile
+--- net/pimdd.orig/Makefile	2012-07-23 13:52:30.000000000 +0100
++++ net/pimdd/Makefile	2012-07-23 13:52:05.000000000 +0100
+@@ -20,10 +20,6 @@
+ 
+ .include <bsd.port.pre.mk>
+ 
+-.if ${OSVERSION} >= 800070
+-BROKEN=		does not compile: error: IGMP_HOST_MEMBERSHIP_REPORT undeclared
+-.endif
+-
+ post-patch:
+ 	${REINPLACE_CMD} -e 's|/etc/pimd.conf|${PREFIX}/etc/pimd.conf|g' ${WRKSRC}/pathnames.h
+ 
+diff -ruN net/pimdd.orig/files/patch-defs.h net/pimdd/files/patch-defs.h
+--- net/pimdd.orig/files/patch-defs.h	1970-01-01 01:00:00.000000000 +0100
++++ net/pimdd/files/patch-defs.h	2012-07-23 13:51:18.000000000 +0100
+@@ -0,0 +1,20 @@
++--- defs.h.orig	2012-07-23 13:50:47.000000000 +0100
+++++ defs.h	2012-07-23 13:35:04.000000000 +0100
++@@ -262,7 +262,7 @@
++ 
++ #ifndef IGMP_MEMBERSHIP_QUERY
++ #define IGMP_MEMBERSHIP_QUERY		IGMP_HOST_MEMBERSHIP_QUERY
++-#if !(defined(NetBSD))
+++#if !(defined(NetBSD)) && !(defined(FreeBSD))
++ #define IGMP_V1_MEMBERSHIP_REPORT	IGMP_HOST_MEMBERSHIP_REPORT
++ #define IGMP_V2_MEMBERSHIP_REPORT	IGMP_HOST_NEW_MEMBERSHIP_REPORT
++ #else
++@@ -272,7 +272,7 @@
++ #define IGMP_V2_LEAVE_GROUP		IGMP_HOST_LEAVE_MESSAGE
++ #endif
++ 
++-#if defined(NetBSD)
+++#if defined(NetBSD) || defined(FreeBSD)
++ #define IGMP_MTRACE_RESP                IGMP_MTRACE_REPLY
++ #define IGMP_MTRACE                     IGMP_MTRACE_QUERY
++ #endif
