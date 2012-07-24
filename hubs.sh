@@ -114,7 +114,10 @@ ports-net-mgmt ${PORTS_DATE}
 ports-mail ${PORTS_DATE}
 ports-security ${PORTS_DATE}
 ports-sysutils ${PORTS_DATE}
-
+## needed for expat for unbound
+ports-textproc ${PORTS_DATE}
+## for makedepend wanted by olsrd
+ports-x11 ${PORTS_DATE}
 EOF
 	csup -L 1 $SUPFILE
     # Force a repatch because csup pulls pristine sources.

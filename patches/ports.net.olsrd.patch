@@ -1,0 +1,21 @@
+diff -ruN net/olsrd.orig/Makefile net/olsrd/Makefile
+--- net/olsrd.orig/Makefile	2012-07-24 11:33:34.000000000 +0100
++++ net/olsrd/Makefile	2012-07-24 11:32:46.000000000 +0100
+@@ -34,6 +34,8 @@
+ 
+ .if defined(WITH_MULTI_IF)
+ MAKE_ARGS+=	LIBNET=1
++CFLAGS+=	-I${PREFIX}/include/libnet11
++LDFLAGS+=	-L${PREFIX}/lib/libnet11
+ .endif
+ .if defined(PREFIX)
+ MAKE_ARGS+=	PREFIX=${PREFIX}
+@@ -45,6 +47,8 @@
+ CFLAGS+=	-fPIC
+ .endif
+ 
++MAKE_ARGS+=	CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}"
++
+ .if !defined(WITH_MULTI_IF)
+ pre-everything::
+ 	@${ECHO_MSG}	""

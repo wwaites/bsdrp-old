@@ -305,6 +305,9 @@ add_port "net/quagga-re" "-DWITH_ISISD -DWITH_OSPF_NSSA -DWITH_OSPF_OPAQUE_LSA -
 add_port "net/bird" "-DWITH_FIBS -DWITH_FIREWALL"
 add_port "net/bird6" "-DWITH_FIBS -DWITH_FIREWALL"
 
+# Add OLSRd
+add_port "net/olsrd" "-DWITH_MULTI_IF"
+
 # Add FreeVRRPd (netgraph dependent)
 add_port "net/freevrrpd"
 
@@ -329,7 +332,9 @@ add_port "net/isc-dhcp42-server" "-DWITH_DHCP_IPV6 -DWITHOUT_DHCP_PARANOIA"
 add_port "net/isc-dhcp42-relay"
 
 # Add DNS proxy
-add_port "dns/djbdns" "-DWITH_IPV6 -DWITHOUT_MAN"
+#add_port "dns/djbdns" "-DWITH_IPV6 -DWITHOUT_MAN"
+add_port "dns/unbound"
+add_port "dns/nsd"
 
 # Add sstmp, a simple MTA to get mail off the system
 add_port "mail/ssmtp"
