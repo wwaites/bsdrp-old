@@ -77,5 +77,9 @@ if ($?prompt) then
 	#Check the VM usage and kern.hz problem
 	/usr/local/sbin/system check-vm quiet
 
+	if ( { test -r /etc/version } ) then
+		echo "Welcome to BSDRP (HUBS)" `cat /etc/version`
+		echo "Type 'help' to get started"
+	endif
 endif
 
